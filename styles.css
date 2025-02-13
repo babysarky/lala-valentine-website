@@ -1,8 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
-
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(to bottom right, #ffdde1, #ee9ca7); /* Soft Pink Gradient */
+    background: linear-gradient(to bottom right, #ffdde1, #ee9ca7);
     color: #5a3f5c;
     text-align: center;
     display: flex;
@@ -13,7 +11,6 @@ body {
     margin: 0;
 }
 
-/* Main Window Styling */
 .window {
     background: #fff;
     padding: 30px;
@@ -27,7 +24,6 @@ body {
     animation: fadeIn 0.8s ease-in-out;
 }
 
-/* Buttons */
 button {
     padding: 12px 25px;
     font-size: 16px;
@@ -49,44 +45,44 @@ button:hover {
     display: none;
 }
 
-/* Playlist Styling */
-.song {
+.song-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fbd3e9;
     padding: 15px;
-    background: #fbd3e9; /* Soft pink frame */
     border-radius: 15px;
     margin: 15px auto;
     width: 80%;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.3s;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-.song:hover {
-    background: #ffb6c1;
-    transform: scale(1.05);
+.album-cover {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Song Display Frame */
-#songScreen {
-    width: 550px;
-    background: white;
-    padding: 25px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
-    animation: fadeIn 0.8s ease-in-out;
+.cat-gifs {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-#songScreen img {
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-    margin-top: 10px;
-    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.2);
+.cat-gif {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    transition: transform 0.5s;
 }
 
-/* Fade-in Animation */
+.cat-gif:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

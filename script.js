@@ -14,7 +14,7 @@ function maybeLater() {
 }
 
 function displayTime() {
-    const startDate = new Date("2025-01-30"); 
+    const startDate = new Date("2024-01-30"); 
     const now = new Date();
     
     let diff = now - startDate;
