@@ -1,10 +1,92 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<NotepadPlus>
-    <Session activeView="0">
-        <mainView activeIndex="1">
-            <File firstVisibleLine="3" xOffset="0" scrollWidth="1080" startPos="0" endPos="0" selMode="0" offset="0" wrapCount="1" lang="Ninguno (texto normal)" encoding="-1" userReadOnly="no" filename="C:\Program Files\Notepad++\change.log" backupFilePath="" originalFileLastModifTimestamp="1931091456" originalFileLastModifTimestampHigh="31160289" tabColourId="-1" RTL="no" tabPinned="no" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="512" mapWrapIndentMode="-1" mapIsWrap="no" />
-            <File firstVisibleLine="69" xOffset="0" scrollWidth="2220" startPos="3826" endPos="3826" selMode="0" offset="0" wrapCount="1" lang="HTML" encoding="-1" userReadOnly="no" filename="C:\Users\rotar\Desktop\valentines-website\index.html" backupFilePath="C:\Users\rotar\AppData\Roaming\Notepad++\backup\index.html@2025-02-14_003117" originalFileLastModifTimestamp="674093077" originalFileLastModifTimestampHigh="31161929" tabColourId="-1" RTL="no" tabPinned="no" mapFirstVisibleDisplayLine="-1" mapFirstVisibleDocLine="-1" mapLastVisibleDocLine="-1" mapNbLine="-1" mapHigherPos="-1" mapWidth="-1" mapHeight="-1" mapKByteInDoc="512" mapWrapIndentMode="-1" mapIsWrap="no" />
-        </mainView>
-        <subView activeIndex="0" />
-    </Session>
-</NotepadPlus>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Times Together</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div class="window" id="welcomeScreen">
+        <h1>Times Together</h1>
+        <p>Want to see how long we've been together?</p>
+        <button onclick="startCalculation()">Sure</button>
+        <button onclick="maybeLater()">Maybe later</button>
+        <button onclick="showPlaylist()">Playlists</button> 
+    </div>
+
+    <div class="window hidden" id="loadingScreen">
+        <h1>Calculating...</h1>
+        <p>Loading your time together...</p>
+        <div class="progress-bar"><div class="progress"></div></div>
+    </div>
+
+    <div class="window hidden" id="resultScreen">
+        <h1>Time We've Spent Together</h1>
+        <div id="timeDisplay"></div>
+        <button onclick="showPopups()">Replay</button>
+        <button onclick="backToWelcome()">Back</button>
+    </div>
+
+    <!-- Playlist Section -->
+    <div class="window hidden" id="playlistScreen">
+        <h1>🎶 Songs That Remind Me of You</h1>
+        <div class="playlist-container">
+            <div class="playlist-frame">
+                <div class="playlist-header">Songs that remind me of you</div>
+                <div class="playlist-content">
+
+                    <div class="song-item" onclick="showSong(
+                        'No One Noticed', 
+                        'The Marías', 
+                        'https://open.spotify.com/track/3siwsiaEoU4Kuuc9WKMUy5?si=fb5d7ad569eb47aa', 
+                        'https://i.imgur.com/hdco4ho.jpeg')">
+                        <img src="https://i.imgur.com/hdco4ho.jpeg" class="album-cover" alt="No One Noticed">
+                        <p>No One Noticed - The Marías</p>
+                    </div>
+
+                    <div class="song-item" onclick="showSong(
+                        'Valentine', 
+                        'Laufey', 
+                        'https://open.spotify.com/track/6cx5CvFhqN19efStehJqoW?si=6d4c5004b98f4cce', 
+                        'https://i.imgur.com/Q57ggbI.png')">
+                        <img src="https://i.imgur.com/Q57ggbI.png" class="album-cover" alt="Valentine">
+                        <p>Valentine - Laufey</p>
+                    </div>
+
+                    <div class="song-item" onclick="showSong(
+                        'Thinkin Bout You', 
+                        'Frank Ocean', 
+                        'https://open.spotify.com/intl-es/track/7DfFc7a6Rwfi3YQMRbDMau?si=2e5e346005f14d1d', 
+                        'https://i.imgur.com/vtgLoCM.jpeg')">
+                        <img src="https://i.imgur.com/vtgLoCM.jpeg" class="album-cover" alt="Thinkin Bout You">
+                        <p>Thinkin Bout You - Frank Ocean</p>
+                    </div>
+
+                </div>
+            </div>
+            
+            <!-- Cat GIFs -->
+            <div class="cat-gifs">
+                <img src="https://cataas.com/cat/gif" alt="Cute cat gif" class="cat-gif">
+                <img src="https://cataas.com/cat/gif" alt="Cute cat gif" class="cat-gif">
+            </div>
+        </div>
+        <button onclick="backToWelcome()">Back</button>
+    </div>
+
+    <!-- Song Frame Section -->
+    <div class="window hidden" id="songScreen">
+        <h1 id="songTitle">Song Title</h1>
+        <p id="songArtist">Artist</p>
+        <img id="songImage" src="" alt="Album Cover">
+        <button id="spotifyLink" onclick="openSpotify()">Play on Spotify</button>
+        <button onclick="backToPlaylist()">Back</button>
+    </div>
+
+    <div id="popupsContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
